@@ -1,0 +1,21 @@
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: exchange-rate
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: ap-southeast-1
+  environment:
+    BOT_TOKEN: ${ssm:/exchange-rate/BOT_TOKEN}
+    CHAT_ID: ${ssm:/exchange-rate/CHAT_ID}
+    OPEN_EXCHANGE_API_KEY: ${ssm:/exchange-rate/OPEN_EXCHANGE_API_KEY}
+
+functions:
+  rateHandler:
+    handler: handler.run
+    events:
+      - schedule: cron(30 3 ? * MON-FRI *)  # This runs at 3.30 AM UTC week days
+  openRateHandler:
+    handler: openRateHandler.run
+    events:
+      - schedule: cron(31 3 ? * MON-FRI *)  # This runs at 3.31 AM UTC week days
