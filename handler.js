@@ -29,7 +29,7 @@ const formatExchangeRates = (currency, rates) => {
   let message = `Exchange Rates for ${currency}:\n\n`;
   
   // Find the maximum length for each bank according to the bank name for padding
-  const maxLength = [16, 21, 20, 10, 20, 19, 21, 21, 16, 14]
+  const maxLength = [16, 21, 20, 10, 20, 19, 21, 21, 16, 14, 23]
   
   rates.forEach((rate, i) => {
     const buyingRate = parseFloat(rate.buyingRate).toFixed(2);

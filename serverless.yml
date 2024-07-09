@@ -18,5 +18,5 @@ functions:
   openRateHandler:
     handler: openRateHandler.run
     events:
-      - schedule: cron(31 3 ? * MON-FRI *)  # This runs at 3.31 AM UTC week days
+      - schedule: cron(01 4 ? * MON-FRI *)  # This runs at 4.01 AM UTC week days
       - schedule: cron(31 6 ? * MON-FRI *)  # This runs at 6.31 AM UTC week days
